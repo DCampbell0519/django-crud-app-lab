@@ -6,11 +6,11 @@
 {% block content %}
 <section class="journal-index-container">
     {% for entry in journal_entries %}
-    <div>
-        <h2>{{ entry.title }}</h2>
-        <p>{{ entry.entry }}</p>
-        <p>{{ entry.pub_date }}</p>
+    <div class="journal">
+        <a href="{% url 'journal-detail' entry.id %}"><h2>{{ entry.title }}</h2></a>
     </div>
+    <!-- <p>{{ entry.entry }}</p> -->
+    <p>{{ entry.pub_date }}</p>
     {% endfor %}
 </section>
 {% endblock %}

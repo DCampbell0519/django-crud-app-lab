@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journal Detail Page</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="journal-detail-container">
+    <div class="journal-details">
+        <h1>{{ journal_entry.title }}</h1>
+        <p>{{ journal_entry.entry}}</p>
+        <p>{{ journal_entry.pub_date}}</p>
+    </div>
+</section>
+{% endblock %}
