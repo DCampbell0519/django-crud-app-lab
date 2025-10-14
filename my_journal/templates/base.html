@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <title>Jazzy Journal</title>
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+    <main>{% block content %} {% endblock %}</main>
+    <nav>
+      <ul>
+        <li><a href="{% url 'journal-index' %}">All Journal Entries</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+      </ul>
+    </nav>
+    <div class="header-logo-container">
+      <a href="/">
+        <img
+          src="{% static 'images/Journal Cartoon.jpg' %}"
+          alt="The Jazzy Journal Logo"
+        />
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(90, 99, 231);
+}
+
+.header-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header-logo-container img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+  margin: 10px;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}

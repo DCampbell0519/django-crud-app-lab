@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% load static %} 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="journal-index-container">
+    {% for entry in journal_entries %}
+    <div>
+        <h2>{{ entry.title }}</h2>
+        <p>{{ entry.entry }}</p>
+        <p>{{ entry.pub_date }}</p>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
