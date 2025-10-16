@@ -18,3 +18,13 @@ class Journal(models.Model):
 
     def get_absolute_url(self):
         return reverse('journal-detail', kwargs={ 'journal_id': self.id })
+
+class Thought(models.Model):
+    thought = models.TextField()
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
+
+    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.thought
+    
