@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from .models import Journal
 
@@ -19,3 +19,11 @@ class JournalCreate(CreateView):
     model = Journal
     fields = ['title', 'entry']
     # success_url = '/journal/'
+
+class JournalUpdate(UpdateView):
+    model = Journal
+    fields = ['title', 'entry']
+
+class JournalDelete(DeleteView):
+    model = Journal
+    success_url = '/journal/'

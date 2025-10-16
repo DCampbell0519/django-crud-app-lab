@@ -5,7 +5,11 @@
 
 {% block content %}
 <div class="form-header">
-    <h1>Add a Journal Entry</h1>
+    {% if journal %}
+        <h1>Edit this entry, titled: {{ journal.title }}</h1>
+    {% else %}
+        <h1>Add a Journal Entry</h1>
+    {% endif %}
 </div>
 
 <form action="" method="POST" class="form-container">

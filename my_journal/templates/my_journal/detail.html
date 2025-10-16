@@ -13,4 +13,9 @@
         <p>{{ journal_entry.pub_date}}</p>
     </div>
 </section>
+
+<div class="journal-actions">
+    <a href="{% url 'journal-update' journal_entry.id %}" class="btn warn">Edit Journal Entry</a>
+    <a href="{% url 'journal-delete' journal_entry.id %}" class="btn danger">Delete Journal Entry</a>
+</div>
 {% endblock %}
