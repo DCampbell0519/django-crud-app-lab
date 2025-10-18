@@ -53,6 +53,10 @@
             <p>Any follow up thoughts on {{ journal_entry.title }}?</p>
         </div>
         {% endif %}
+
+        <div class="thought-actions">
+            <a href="{% url 'thought-update' thought.id %}" class="btn warn"></a>
+        </div>
     </section>
 </div>
 {% endblock %}
