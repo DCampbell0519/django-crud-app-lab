@@ -21,9 +21,17 @@
 
 <div class="thoughts-container">
     <section class="thoughts">
+        <h3>Add a Thought</h3>
+        <form action="{% url 'add-thought' journal_entry.id %}" method="POST" class="subsection-content" autocomplete="off">
+            {% csrf_token %}
+            {{ thought_form.as_p }}
+            <button class="submit" class="btn submit">Add your Thoughts</button>
+        </form>
+
         <div>
             <h2>Thoughts:</h2>
         </div>
+        {% if journal_entry.thought_set.all.count %}
         <table>
             <thead>
                 <tr>
@@ -35,11 +43,16 @@
                 {% for thought in journal_entry.thought_set.all %}
                 <tr>
                     <td>{{ thought.pub_date }}</td>
-                    <td>{{ thought.get_thought_display }}</td>
+                    <td>{{ thought.thought }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        {% else %}
+        <div>
+            <p>Any follow up thoughts on {{ journal_entry.title }}?</p>
+        </div>
+        {% endif %}
     </section>
 </div>
 {% endblock %}

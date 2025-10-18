@@ -9,4 +9,5 @@ urlpatterns = [
     path('journal/create/', views.JournalCreate.as_view(), name='journal-create'),
     path('journal/<int:pk>/update/', views.JournalUpdate.as_view(), name='journal-update'),
     path('journal/<int:pk>/delete/', views.JournalDelete.as_view(), name='journal-delete'),
+    path('journal/<int:journal_id>/add-thought/', views.add_thought, name='add-thought'),
 ]

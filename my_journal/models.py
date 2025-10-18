@@ -28,3 +28,6 @@ class Thought(models.Model):
     def __str__(self):
         return self.thought
     
+    class Meta:
+        ordering = ['pub_date']
+    
