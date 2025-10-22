@@ -12,9 +12,20 @@
     <main>{% block content %} {% endblock %}</main>
     <nav>
       <ul>
-        <li><a href="{% url 'journal-index' %}">All Journal Entries</a></li>
-        <li><a href="{% url 'journal-create' %}">Add a Journal Entry</a></li>
-        <li><a href="{% url 'home' %}">Home</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'journal-index' %}">All Journal Entries</a></li>
+          <li><a href="{% url 'journal-create' %}">Add a Journal Entry</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>
+            <form id="logout-form" method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit">Log out</button>
+            </form>
+          </li>
+        {% else %}
+          <!-- <li><a href="{% url 'home' %}">Home</a></li> -->
+           <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        {% endif %}
       </ul>
     </nav>
     <div class="header-logo-container">
