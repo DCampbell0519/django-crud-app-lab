@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
-from .models import Journal
+from .models import Journal, Thought
 from .forms import ThoughtForm
 
 # Create your views here.
@@ -25,8 +26,20 @@ def add_thought(request, journal_id):
         new_thought.save()
     return redirect('journal-detail', journal_id=journal_id)
 
-# class ThoughtUpdate(UpdateView):
+class ThoughtUpdate(UpdateView):
+    model = Thought
+    fields = ['thought']
+    # success_url = '/journal/'
+    def get_success_url(self):
+        journal = self.object.journal
+        return reverse('journal-detail', kwargs={'journal_id': journal.id})
 
+class ThoughtDelete(DeleteView):
+    model = Thought
+    # success_url = '/journal/'
+    def get_success_url(self):
+        journal = self.object.journal
+        return reverse('journal-detail', kwargs={'journal_id': journal.id})
 
 class JournalCreate(CreateView):
     model = Journal

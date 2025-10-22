@@ -37,6 +37,7 @@
                 <tr>
                     <th>Date</th>
                     <th>Thought</th>
+                    <th>Edit/Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,6 +45,10 @@
                 <tr>
                     <td>{{ thought.pub_date }}</td>
                     <td>{{ thought.thought }}</td>
+                    <td class="thought-actions">
+                        <a href="{% url 'thought-update' thought.id %}" class="btn warn">Edit Thought</a>
+                        <a href="{% url 'thought-delete' thought.id %}" class="btn danger">Delete Thought</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -54,9 +59,6 @@
         </div>
         {% endif %}
 
-        <div class="thought-actions">
-            <a href="{% url 'thought-update' thought.id %}" class="btn warn"></a>
-        </div>
     </section>
 </div>
 {% endblock %}
